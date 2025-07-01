@@ -1,153 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vema Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yakkanti Vemalatha | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">My Portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#Certifications">Certifications</a></li>
-                </ul>
-            </div>
+<body class="dark">
+  <nav class="navbar">
+    <div class="container nav-content">
+      <div class="logo gradient-text">Yakkanti Vemalatha</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </nav>
+  <main>
+    <section id="home" class="hero-section">
+      <div class="animated-bg" id="hero-animated-bg"></div>
+      <div class="container hero-content">
+        <h1 class="hero-title">Hi, I'm <span class="gradient-text">Yakkanti Vemalatha</span></h1>
+        <p class="hero-subtitle">Full Stack Developer &amp; UI/UX Designer</p>
+        <p class="hero-desc">Passionate about creating beautiful, functional web experiences that solve real-world problems</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
         </div>
-    </nav>
-
-    <!-- Header Section -->
-    <header class="header-bg text-center text-white">
-        <div class="container d-flex align-items-center justify-content-between">
-            <div class="profile-picture animate-easeOut">
-                <img src="https://github.com/pushkar-0553/javafullstackdata/blob/main/vema%20pic.png?raw=true" alt="Vemalatha">
-            </div>
-            <div>
-                <h1 class="animate-fadeIn">Hi, I'm <span class="highlight"><u>Yakkanti Vemalatha</u></span></h1>
-                <p class="lead">An <span class="highlight"><u>Aspiring B.Tech UG</u></span>  with a passion for crafting sleek and Enthustatic towards work</p>
-                <div class="buttons">
-                    <a href="https://drive.google.com/file/d/1lhjXkSikfiTu_rMRVyUjQ-t2gWXUVylq/view?usp=sharing" target="_blank" class="btn btn-outline-light btn-lg">View Resume</a>
-                    <a href="https://drive.google.com/uc?export=download&id=1lhjXkSikfiTu_rMRVyUjQ-t2gWXUVylq" download="Vema resume.pdf" class="btn btn-dark btn-lg">Download resume</a>
-            
-                </div>
-            </div>
-           
+        <div class="hero-socials">
+          <a href="#" aria-label="GitHub">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 21.13V25"></path></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><rect x="2" y="9" width="20" height="13" rx="2" ry="2"></rect><circle cx="12" cy="13" r="4"></circle><line x1="8" y1="6" x2="8" y2="6"></line></svg>
+          </a>
+          <a href="#" aria-label="Twitter"><img src="twitter.svg" alt="Twitter"></a>
         </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="p-5">
-        <div class="container" style="border: 2px solid black; padding: 70px 100px;border-radius:10px;background-color:rgb(198, 213, 213)">
-            <h2 class="section-title">About Me</h2>
-            <p class="lead">I'm a B.TECH UG student well knowledged in building modern, high-performance applications.</p>
-            
-            <div class="row mt-4">
-                
-                    <div class="info-box animate-slideIn">
-                        <h3>Education</h3>
-                        <p>B.Tech in Computer Science from <b><i>Usharama College of Engineering and Technology</i></b></p>
-                        <p>studied MPC and got <b>84.2%</b> in final examination under
-                            board of intermediate Education in <b>NRI Junior College</b><br><br>
-                            completed <b>10th</b> standard under the<b> Board of Secondary Education</b> with <b>9.8 CGPA</b> and percentage <b>93.1%</b> in <b>Sravanti High School</b>
-                        </p>
-                    </div>
-                
-                <div class="col-md-4">
-                    <div class="info-box animate-slideIn">
-                        <h3>Skills</h3>
-                        <p>Java, JavaScript, SQL, HTML, CSS, Python, C, C++, PHP</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="info-box animate-slideIn">
-                        <h3>Interests</h3>
-                        <p>Web Development<br>• Desiging.<br>
-                            • Browsing.<br>
-                            • Problem Solving.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="info-box animate-slideIn">
-                        <h3>Tools</h3>
-                        <p>Spring Boot, Figma, Alteryx.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
+      <button class="scroll-down" aria-label="Scroll to About" onclick="scrollToSection('about')">&#8595;</button>
     </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="p-5  bg-light">
-        <div class="container" style="border: 2px solid black; padding: 50px 150px;border-radius:10px;">
-            <h2 class="section-title">Experience</h2>
-            <div class="row mt-4">
-                <div class="col-md-6">
-                    <div class="experience-box animate-fadeInUp">
-                        <h3>Workshops</h3>
-                        <p>• Participated in 3day workshop and 24-hour HACKATHON on AMAZON WEB SERVICES and
-                            DEVOPS conducted by BRAIN O VISION. (17-07-2023 to 21-07-2023)<br><br>
-                            • Participated in 3day workshop on PROMPT ENGINEERING WITH MACHINE LEARNING
-                            conducted by BRAIN O VISION. (28-09-2023 to 30-09-2023)</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="experience-box animate-fadeInUp">
-                        <h3>Internships</h3>
-                        <p>• AI-ML Virtual internship conducted by AICET with AWS Academy from Dec 2022 to Feb
-                            2023. (10 weeks)<br><br>
-                            • Cyber security Virtual internship conducted by AICET with Palo alto during May- July
-                            2023. (10 weeks)</p><br>
-                    </div>
-                </div>
-            </div>
+    <section id="about" class="about-section container">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>I'm Yakkanti Vemalatha</h3>
+          <p>Passionate about full stack development with expertise in modern web technologies and UI/UX design. I create seamless digital experiences that bridge the gap between functionality and aesthetics.</p>
+          <p>When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or mentoring aspiring developers in the community.</p>
+          <div class="education">
+            <h4>Education</h4>
+            <ul>
+              <li><strong>Bachelor of Computer Science in Usharama College of Engineering and Technology</strong> - 2021 - 2025</li>
+              <li><strong>Studied MPC and got 84.2% in final examination under board of intermediate Education in NRI Junior College</strong> - 2019 - 2021</li>
+            </ul>
+          </div>
+          <a href="https://drive.google.com/file/d/10VyWlTbNcUriHFzPYt4zLsnAGrQKiU73/view?usp=drive_link" class="btn btn-gradient" target="_blank" rel="noopener">Download CV</a>
         </div>
+      </div>
     </section>
-<!--Certificates section-->
-    <section id="Certifications" class="p-5 bg-light">
-        <div class="container" style="border-radius:10px;">
-            <h2 class="section-title">Certificates</h2>
-            <div class="row mt-4">
-               
-                    <div class="experience-box animate-fadeInUp">
-                        <h5>GUVI' S Design Skill-A-Thon</h5>
-                        <p>•Participated in GUVI' S Design Skill-A-Thon conducted by GUVI and APSSDC.</p>
-                        <h5>MongoDB</h5>
-                        <p>•Completed MongoDB course provided by MongoDB.</p>
-                        <h5>APSSDC - Edunet & IBM SkillsBuild Virtual Internship Program 2024-25</h5>
-                        <p>•Completed Employability skills course in Summer 2024-25 conducted by APSSDC - Edunet Foundation and IBM SkillsBuild.</p>
-
-                    </div>
-               
-                
-            </div>
-        </div>
+    <section id="skills" class="skills-section container">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <!-- Skills will be rendered by JS -->
+      </div>
     </section>
-
-    <!-- Resume Section -->
-    <section id="resume" class="p-5 ">
-        <div class="container" style="border:4px solid black; padding: 70px 100px;border-radius:10px; background-color:rgb(145, 254, 254);">
-            <h2 class="section-title">Resume</h2>
-            <a href="https://drive.google.com/file/d/1lhjXkSikfiTu_rMRVyUjQ-t2gWXUVylq/view?usp=sharing" target="_blank" class="btn btn-dark btn-lg">View Resume</a>&nbsp;
-                    <a href="https://drive.google.com/uc?export=download&id=1lhjXkSikfiTu_rMRVyUjQ-t2gWXUVylq" download="Vema resume.pdf" class="btn btn-dark btn-lg">Download resume</a>
-        </div>
+    <section id="projects" class="projects-section container">
+      <h2>Projects</h2>
+      <div class="projects-list">
+        <!-- Projects will be rendered by JS (GitHub API) -->
+      </div>
     </section>
-
-    <footer class="p-3 bg-dark text-white text-center">
-        <p>&copy; Ph.NO:&nbsp; +91 7416629262 &nbsp;&nbsp; Email: &nbsp;yvemalatha@gmail.com</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <section id="courses" class="courses-section container">
+      <h2>Courses &amp; Certifications</h2>
+      <div class="courses-list">
+        <!-- Courses will be rendered by JS -->
+      </div>
+    </section>
+    <section id="contact" class="contact-section container">
+      <h2>Get In Touch</h2>
+      <form id="contactForm" class="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <button type="submit" class="btn btn-gradient">Send Message</button>
+      </form>
+    </section>
+  </main>
+  
+  <!-- Custom Notification Toast -->
+  <div id="notification" class="notification">
+    <div class="notification-content">
+      <div class="notification-icon">✓</div>
+      <div class="notification-message">Message sent successfully!</div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo gradient-text">Yakkanti Vemalatha</div>
+      <div class="footer-socials">
+        <a href="#" aria-label="GitHub">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 21.13V25"></path></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><rect x="2" y="9" width="20" height="13" rx="2" ry="2"></rect><circle cx="12" cy="13" r="4"></circle><line x1="8" y1="6" x2="8" y2="6"></line></svg>
+        </a>
+        <a href="#" aria-label="Twitter"><img src="twitter.svg" alt="Twitter"></a>
+      </div>
+      <p>&copy; 2024 All rights reserved</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
-</html>
+</html> 
