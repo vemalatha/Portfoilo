@@ -19,11 +19,65 @@ darkModeToggle.addEventListener('click', () => {
   setDarkMode(!body.classList.contains(DARK_CLASS));
 });
 
-// On load, set dark mode from localStorage or default to dark
-if (localStorage.getItem('darkMode') === '0') {
-  setDarkMode(false);
-} else {
+// On load, set theme from localStorage or default to light
+const saved = localStorage.getItem('darkMode');
+if (saved === '1') {
   setDarkMode(true);
+} else {
+  setDarkMode(false);
+}
+
+// Hero typing animation
+const heroTypedEl = document.getElementById('hero-typed');
+if (heroTypedEl) {
+  const phrases = [
+    'Java Developer',
+    'AWS Cloud Engineer',
+    'DevSecOps Enthusiast',
+    'Spring Boot • FastAPI • Serverless'
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  const typeSpeed = 55;
+  const deleteSpeed = 35;
+  const pauseAfterTypeMs = 1000;
+  const pauseAfterDeleteMs = 250;
+
+  function tick() {
+    const current = phrases[phraseIndex];
+
+    if (!deleting) {
+      charIndex += 1;
+      heroTypedEl.textContent = current.slice(0, charIndex);
+
+      if (charIndex >= current.length) {
+        deleting = true;
+        setTimeout(tick, pauseAfterTypeMs);
+        return;
+      }
+
+      setTimeout(tick, typeSpeed);
+      return;
+    }
+
+    // deleting
+    charIndex -= 1;
+    heroTypedEl.textContent = current.slice(0, charIndex);
+
+    if (charIndex <= 0) {
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(tick, pauseAfterDeleteMs);
+      return;
+    }
+
+    setTimeout(tick, deleteSpeed);
+  }
+
+  tick();
 }
 
 // Smooth scroll for nav links and scroll-down button
@@ -46,88 +100,135 @@ document.querySelectorAll('.scroll-down').forEach(btn => {
   btn.addEventListener('click', () => scrollToSection('about'));
 });
 
-// Skills data
+// Skills data for Java Developer + AWS Cloud Engineer + DevSecOps
 const skills = [
-  { name: 'HTML/CSS', level: 95 },
-  { name: 'JavaScript', level: 90 },
-  { name: 'TypeScript', level: 85 },
-  { name: 'Node.js', level: 85 },
-  { name: 'Express.js', level: 80 },
-  { name: 'MongoDB', level: 80 },
-  { name: 'Python', level: 75 },
-  { name: 'UI/UX Design', level: 92 },
-  { name: 'Database', level: 80 },
-  { name: 'Mobile Dev', level: 75 },
-  { name: 'Git', level: 80 },
+  { name: 'Java', level: 90, category: 'Programming' },
+  { name: 'Python', level: 85, category: 'Programming' },
+  { name: 'SQL', level: 80, category: 'Programming' },
+  { name: 'AWS Lambda', level: 85, category: 'Cloud' },
+  { name: 'AWS SNS', level: 80, category: 'Cloud' },
+  { name: 'AWS API Gateway', level: 80, category: 'Cloud' },
+  { name: 'AWS IAM', level: 85, category: 'Cloud' },
+  { name: 'Spring Boot', level: 88, category: 'Programming' },
+  { name: 'FastAPI', level: 82, category: 'Programming' },
+  { name: 'Git', level: 85, category: 'DevOps' },
+  { name: 'CI/CD', level: 75, category: 'DevOps' },
+  { name: 'Linux', level: 80, category: 'OS' },
+  { name: 'Figma', level: 85, category: 'Tools' },
+  { name: 'Power BI', level: 78, category: 'Tools' }
 ];
 
 function renderSkills() {
   const skillsList = document.querySelector('.skills-list');
   skillsList.innerHTML = '';
+  
+  // Group skills by category
+  const skillsByCategory = {};
   skills.forEach(skill => {
-    const card = document.createElement('div');
-    card.className = 'skill-card';
-    card.innerHTML = `
-      <div class="skill-title">${skill.name}</div>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width:0%"></div></div>
-      <div class="skill-level">${skill.level}%</div>
+    if (!skillsByCategory[skill.category]) {
+      skillsByCategory[skill.category] = [];
+    }
+    skillsByCategory[skill.category].push(skill);
+  });
+  
+  // Render skills by category
+  Object.keys(skillsByCategory).forEach(category => {
+    const categoryCard = document.createElement('div');
+    categoryCard.className = 'skill-category-card';
+    categoryCard.innerHTML = `
+      <h3 class="skill-category-title">${category}</h3>
+      <div class="skills-grid"></div>
     `;
-    skillsList.appendChild(card);
-    setTimeout(() => {
-      card.querySelector('.skill-bar-fill').style.width = skill.level + '%';
-    }, 200);
+    
+    const skillsGrid = categoryCard.querySelector('.skills-grid');
+    skillsByCategory[category].forEach(skill => {
+      const skillElement = document.createElement('div');
+      skillElement.className = 'skill-item';
+      skillElement.innerHTML = `
+        <div class="skill-name">${skill.name}</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:0%"></div></div>
+        <div class="skill-level">${skill.level}%</div>
+      `;
+      skillsGrid.appendChild(skillElement);
+      
+      setTimeout(() => {
+        skillElement.querySelector('.skill-bar-fill').style.width = skill.level + '%';
+      }, 200);
+    });
+    
+    skillsList.appendChild(categoryCard);
   });
 }
 renderSkills();
 
-// Courses data
-const courses = [
-  { title: 'Full Stack Web Development', provider: 'Tech Academy' },
-  { title: 'React Advanced Patterns', provider: 'React Institute' },
-  { title: 'UI/UX Design Masterclass', provider: 'Design School' },
-  { title: 'Node.js Backend Development', provider: 'Backend Academy' },
+// Projects data
+const projects = [
+  {
+    name: 'AI Powered Learning Platform',
+    description: 'Spring Boot backend with Python FastAPI ML model integration. Features personalized learning paths and real-time analytics dashboard.',
+    technologies: ['Spring Boot', 'FastAPI', 'Machine Learning', 'PostgreSQL'],
+    github: 'https://github.com/VemalathaYakkanti/ai-learning-platform',
+    live: null
+  },
+  {
+    name: 'Text Analysis App on AWS',
+    description: 'Serverless application using Amazon Comprehend for sentiment analysis. Built with AWS Lambda, SNS, API Gateway, and secure IAM role-based access.',
+    technologies: ['AWS Lambda', 'Amazon Comprehend', 'SNS', 'API Gateway', 'IAM'],
+    github: 'https://github.com/VemalathaYakkanti/aws-text-analysis',
+    live: null
+  }
 ];
-function renderCourses() {
-  const coursesList = document.querySelector('.courses-list');
-  coursesList.innerHTML = '';
-  courses.forEach(course => {
+function renderProjects() {
+  const projectsList = document.querySelector('.projects-list');
+  projectsList.innerHTML = '';
+  
+  projects.forEach(project => {
     const card = document.createElement('div');
-    card.className = 'course-card';
+    card.className = 'project-card';
     card.innerHTML = `
-      <div class="course-title">${course.title}</div>
-      <div class="course-provider">${course.provider}</div>
+      <div class="project-title">${project.name}</div>
+      <div class="project-desc">${project.description}</div>
+      <div class="project-tech">
+        ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+      </div>
+      <div class="project-links">
+        <a href="${project.github}" target="_blank" rel="noopener">View Code</a>
+        ${project.live ? `<a href="${project.live}" target="_blank" rel="noopener">Live Demo</a>` : ''}
+      </div>
     `;
-    coursesList.appendChild(card);
+    projectsList.appendChild(card);
   });
 }
-renderCourses();
+renderProjects();
 
-// Fetch and render GitHub projects
-const githubUsername = 'vemalatha';
-async function renderProjects() {
-  const projectsList = document.querySelector('.projects-list');
-  projectsList.innerHTML = '<div>Loading projects...</div>';
+// Fetch and render GitHub projects as backup
+const githubUsername = 'VemalathaYakkanti';
+async function fetchGitHubProjects() {
   try {
     const res = await fetch(`https://api.github.com/users/${githubUsername}/repos`);
     const repos = await res.json();
-    projectsList.innerHTML = '';
-    repos.forEach(repo => {
-      const card = document.createElement('div');
-      card.className = 'project-card';
-      card.innerHTML = `
-        <div class="project-title">${repo.name}</div>
-        <div class="project-desc">${repo.description || 'No description provided.'}</div>
-        <div class="project-links">
-          <a href="${repo.html_url}" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      `;
-      projectsList.appendChild(card);
+    
+    // Add GitHub repos to projects if they don't already exist
+    repos.slice(0, 4).forEach(repo => {
+      if (!projects.find(p => p.name === repo.name)) {
+        projects.push({
+          name: repo.name,
+          description: repo.description || 'GitHub repository',
+          technologies: [],
+          github: repo.html_url,
+          live: null
+        });
+      }
     });
+    
+    renderProjects();
   } catch (e) {
-    projectsList.innerHTML = '<div>Failed to load projects.</div>';
+    console.log('Using static projects data');
   }
 }
-renderProjects();
+
+// Try to fetch GitHub projects, fallback to static data
+fetchGitHubProjects();
 
 // Custom notification function
 function showNotification(message, type = 'success') {
